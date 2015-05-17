@@ -1,0 +1,26 @@
+<template name="ftConfigUpdate">
+{{#Surface conSurface1 }} 
+  {{# Layout template="ftSmallContentOffset" }}
+    {{# Layout template="ftTitle" }}
+      Config
+    {{/ Layout }}
+    {{# Layout template="ftContentContainer" }}
+      <p>
+        {{> reactiveTemplate template="tabs" data=getDataForTabs }}
+      </p>
+      <hr>
+      {{# autoForm collection="orion.config.collection" id="updateConfigForm" type="update" doc=getDoc }}
+        {{# if getFields }}
+          {{# each afFieldNames fields=getFields }}
+            {{> afQuickField name=this.name options=afOptionsFromSchema }}
+          {{/ each}}
+        {{/ if }}
+        <br>
+        <div class="text-right">
+          <button class="btn btn-primary">Save</button>
+        </div>
+      {{/ autoForm }}
+    {{/ Layout }}
+  {{/ Layout }}
+{{/ Surface }}
+</template>

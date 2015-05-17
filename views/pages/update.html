@@ -1,0 +1,20 @@
+<template name="ftPagesUpdate">
+{{#Surface conSurface1 }} 
+  {{# Layout template="ftMediumContentOffset" }}
+	{{# Layout template="ftTitle" }}
+		Update page
+	{{/ Layout }}
+	{{# Layout template="ftContentContainer" }}
+		{{# if getSchema }}
+			{{> quickForm collection="orion.pages.collection" schema=getSchema doc=this id="orionPagesUpdateForm" type="update" buttonContent=false }}
+			<br>
+			<div class="buttons text-right">
+				<a class="btn btn-default cancel-btn" href="{{ pathFor 'pages.index' }}">Cancel</a>
+				<a class="btn btn-danger delete-btn" href="{{ pathFor 'pages.delete' }}">Delete</a>
+				<a class="btn btn-primary save-btn">Save</a>
+			</div>
+		{{/ if }}
+	{{/ Layout }}
+  {{/ Layout }}
+{{/ Surface }}
+</template>

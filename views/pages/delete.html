@@ -1,0 +1,17 @@
+<template name="ftPagesDelete">
+{{#Surface conSurface1 }} 
+  {{# Layout template="ftSmallContentOffset" }}
+    {{# Layout template="ftTitle" }}
+      Delete page
+    {{/ Layout }}
+    {{# Layout template="ftContentContainer" }}
+      <p>Are you sure you want to delete this page?</p>
+
+      <div class="">
+          <a class="btn btn-default cancel-delete" href="{{ pathFor 'pages.update' }}">Cancel</a>
+          <a class="btn btn-danger confirm-delete">Confirm</a>
+      </div>
+    {{/ Layout }}
+  {{/ Layout }}
+{{/ Surface }}
+</template>

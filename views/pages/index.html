@@ -1,0 +1,13 @@
+<template name="ftPagesIndex">
+{{#Surface conSurface1 }} 
+  {{# Layout template="ftMediumContentOffset" }}
+    {{# Layout template="ftTitle" }}
+      Pages
+      <a href="{{ pathFor 'pages.create' }}" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></a>
+    {{/ Layout }}
+    {{# Layout template="ftContentContainer" }}
+      {{> tabular table=tabularTable class="table index-table" }}
+    {{/ Layout }}
+  {{/ Layout }}
+{{/ Surface }}
+</template>

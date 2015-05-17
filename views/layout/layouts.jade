@@ -1,0 +1,79 @@
+template(name='ftLayout')
+  +famousContext id='mainCtx'
+    // This add the sidemenu for mobile or xsmall screen
+    +sideMenu
+    +StateModifier align='[.5,.5]' origin='[.5,.5]' size=main
+      +HeaderFooterLayout headerSize='120' footerSize='80' direction= '1'
+        +StateModifier align='[.5,.5]' origin='[.5,.5]' target='header' translate='[0, 0, 100]'
+            +menu
+        //- +Surface target='header' size='[undefined,undefined]' translate='[0,0,100]'
+          +nav
+        +RenderController target='content'
+          if dictionaryReady
+            +yield
+        +Surface target='footer' size='[undefined,undefined]' translate='[0,0,100]'
+          +footer
+  //- +famousContext id='mainCtx'
+  //-    // This add the sidemenu for mobile or xsmall screen
+  //-   +sideMenu
+  //-   +FlexLayoutController layout='HeaderFooterLayout' layoutOptions='{  "headerSize": 60, "footerSize": 80 }'
+  //-     +StateModifier align='[.5,.5]' origin='[.5,.5]' target='header' translate='[0, 0, 100]'
+  //-       +menu
+  //-     //- +Surface target="header" 
+  //-     //-   +nav
+  //-     +RenderController target='content'
+  //-       +yield
+  //-     +Surface target="footer" 
+  //-       +footer
+
+template(name='ftOutAdminLayout')
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
+        h1.text-center 
+          +yield 'title' 
+        +yield 
+//- template(name='nav')
+//-   .nav
+//-     +if dictionaryReady
+//-       +reactiveTemplate template="links"
+
+template(name='menuLogo')
+  p: i.fa.fa-area-chart
+
+template(name='ftHeader')
+  .navbar
+    .navbar-header
+      .navbar-header
+        a.menu-toggle.navbar-brand
+          i.fa.fa-bars
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      ul.nav.navbar-nav.navbar-right
+template(name='ftSmallContentOffset')
+  .row
+    .col-sm-8.col-sm-offset-2
+      +yield 
+template(name='ftMediumContentOffset')
+  .row
+    .col-sm-10.col-sm-offset-1
+      +yield 
+template(name='ftContentContainer')
+  .well
+    +yield 
+template(name='ftTitle')
+  h1.title
+    +yield 
+  hr
+//- login template
+template(name='ftLogin')
+  +Modifier proportions='[0.8, 1]' align='[.5, 0]' origin='[.5,0]'
+    +atForm 
+template(name='footer')
+  div.container
+    <hr>
+    p.text-muted
+      a(href='http://github.com/orionjs/orion') Famous Theme for Orion
+      |  by 
+      a(href='http://github.com/nicolaslopezj') TimFam
+    nav.navbar-nav.navbar-right
+      +atNavButton
